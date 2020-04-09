@@ -9,6 +9,7 @@ with customers as (
     select * from {{ ref('stg_customers') }}
 
 ),
+
 orders as (
     
     select * from {{ ref('stg_orders') }}
@@ -34,10 +35,11 @@ customer_orders as (
                 else amount
             end) as lifetime_value
         */
-    from orders
+    from fct_orders
 
     group by 1
 ),
+
 final as (
 
     select
@@ -56,3 +58,4 @@ final as (
 )
 
 select * from final
+
