@@ -25,7 +25,7 @@ customer_orders as (
         
         -- option 1, returns not incuded
         sum(case
-                when status not in ('returned', 'returned_pending') then amount
+                when status not in ('returned', 'return_pending') then amount
                 else 0
             end) as lifetime_value
         /*
