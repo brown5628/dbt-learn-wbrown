@@ -5,4 +5,4 @@ select
     round(AMOUNT/100, 2) as amount,
     CREATED as payment_creation_date
 
-from raw.stripe.payment
+from {{ source('stripe', 'payment')}}
