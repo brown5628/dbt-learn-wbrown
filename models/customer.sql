@@ -21,8 +21,19 @@ customer_orders as (
         min(order_date) as first_order_date,
         max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders,
-        sum(amount) as lifetime_value
-
+        
+        -- option 1, returns not incuded
+        sum(case
+                when status not in ('returned', 'returned_pending') then amount
+                else 0
+            end) as lifetime_value
+        /*
+        -- option 2, returns deducted
+        sum(case
+                when status in ('returned', 'returned_pending') then -amount
+                else amount
+            end) as lifetime_value
+        */
     from orders
 
     group by 1
