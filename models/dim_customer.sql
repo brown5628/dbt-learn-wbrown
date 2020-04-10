@@ -35,7 +35,7 @@ customer_orders as (
                 else amount
             end) as lifetime_value
         */
-    from fct_orders
+    from {{ ref('fct_orders') }}
 
     group by 1
 ),
