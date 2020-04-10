@@ -1,4 +1,5 @@
-
+# require-dbt-version: [">=0.16.0", "<0.17.0"]
+require-dbt-version: [">=0.15.2", "<0.17.0"]
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -16,6 +17,14 @@ analysis-paths: ["analysis"]
 test-paths: ["tests"]
 data-paths: ["data"]
 macro-paths: ["macros"]
+
+quoting:
+  database: false
+  identifier: false
+  schema: false
+models:
+  transient: true
+
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`

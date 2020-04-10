@@ -1,0 +1,27 @@
+version: 2
+sources:
+    - name: learn_stripe
+      database: raw
+      schema: learn_stripe
+  
+      freshness:
+        warn_after: {count: 12, period: hour}
+        error_after: {count: 24, period: hour}
+  
+      tables:
+        - name: charges
+          loaded_at_field: created
+          columns:
+            - name: id
+              description: Primary Key
+              tests:
+                - unique
+                - not_null         
+  
+        - name: refunds
+    
+    - name: ticket_tailor
+      database: raw 
+      schema: ticket_tailor
+      tables:
+        - name: orders
