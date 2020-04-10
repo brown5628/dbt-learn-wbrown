@@ -61,6 +61,7 @@ sources:
         loaded_at_field: _etl_loaded_at
         columns:
           - name: id
+            description: Primary Key
             tests:
               - unique
               - not_null         
