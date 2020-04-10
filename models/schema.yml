@@ -36,6 +36,15 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id 
+  - name: fct_orders
+    description: This model adds payment amounts to order data.
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
 
 sources:
   - name: jaffle_shop
