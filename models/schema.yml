@@ -57,6 +57,7 @@ sources:
 
     tables:
       - name: orders
+        description: Orders from the Jaffle shop (?)
         loaded_at_field: _etl_loaded_at
         columns:
           - name: id
@@ -70,4 +71,5 @@ sources:
     schema: stripe
     tables:
       - name: payment
+        description: '{{ doc("docs_block") }}'
             
